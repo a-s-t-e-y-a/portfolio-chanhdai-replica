@@ -1,5 +1,9 @@
+import BlogCard from "@/components/blogCard";
 import DividerPattern from "@/components/dividerPattern";
 import HeadingPattern from "@/components/headingDivider";
+import SimpleLineDivider from "@/components/simpleLineDivider";
+
+import blog_sample_data from "../config/sampleBlog";
 
 const listDownItem = [
   {
@@ -43,6 +47,11 @@ export default function Home() {
             background: `linear-gradient(270deg, #FFECB3 0%, #FFE0B2 20%, #FFCDD2 40%, #F8BBD9 60%, #E1BEE7 80%, #D1C4E9 100%)`,
           }}
         />
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <h1 className="fleur-de-leah-regular text-black font-light italic text-6xl">
+            Built it now{" "}
+          </h1>
+        </div>
       </div>
       <div className="relative z-20 mx-auto max-w-screen border-t border-slate-200 text-center">
         <div className="relative z-10 mx-auto flex max-w-3xl border-x border-slate-200">
@@ -124,6 +133,154 @@ export default function Home() {
         />
       </div>
       <HeadingPattern heading="Stack" />
+      <div className="max-w-3xl mx-auto  relative z-10 border-x border-b border-slate-200">
+        <div className="p-4 bg-[radial-gradient(rgba(100,116,139,0.05)_1px,transparent_0)] bg-[size:10px_10px] bg-center">
+          <ul className="flex flex-wrap gap-4 select-none">
+            <li className="flex">
+              <a
+                href="https://www.typescriptlang.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TypeScript"
+              >
+                <img
+                  alt="TypeScript icon"
+                  loading="lazy"
+                  width="32"
+                  height="32"
+                  src="https://assets.chanhdai.com/images/tech-stack-icons/typescript.svg"
+                />
+                <span className="sr-only">TypeScript</span>
+              </a>
+            </li>
+            <li className="flex">
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="JavaScript"
+              >
+                <img
+                  alt="JavaScript icon"
+                  loading="lazy"
+                  width="32"
+                  height="32"
+                  src="https://assets.chanhdai.com/images/tech-stack-icons/js.svg"
+                />
+                <span className="sr-only">JavaScript</span>
+              </a>
+            </li>
+            <li className="flex">
+              <a
+                href="https://nodejs.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Node.js"
+              >
+                <img
+                  alt="Node.js icon"
+                  loading="lazy"
+                  width="32"
+                  height="32"
+                  src="https://assets.chanhdai.com/images/tech-stack-icons/nodejs.svg"
+                />
+                <span className="sr-only">Node.js</span>
+              </a>
+            </li>
+            <li className="flex">
+              <a
+                href="https://react.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="React"
+              >
+                <img
+                  alt="React icon"
+                  loading="lazy"
+                  width="32"
+                  height="32"
+                  src="https://assets.chanhdai.com/images/tech-stack-icons/react.svg"
+                />
+                <span className="sr-only">React</span>
+              </a>
+            </li>
+            <li className="flex">
+              <a
+                href="https://nextjs.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Next.js"
+              >
+                <img
+                  alt="Next.js icon"
+                  loading="lazy"
+                  width="32"
+                  height="32"
+                  src="https://assets.chanhdai.com/images/tech-stack-icons/nextjs2-light.svg"
+                  className="block dark:hidden"
+                />
+                <img
+                  alt="Next.js icon"
+                  loading="lazy"
+                  width="32"
+                  height="32"
+                  src="https://assets.chanhdai.com/images/tech-stack-icons/nextjs2-dark.svg"
+                  className="hidden dark:block"
+                />
+                <span className="sr-only">Next.js</span>
+              </a>
+            </li>
+            <li className="flex">
+              <a
+                href="https://tailwindcss.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tailwind CSS"
+              >
+                <img
+                  alt="Tailwind CSS icon"
+                  loading="lazy"
+                  width="32"
+                  height="32"
+                  src="https://assets.chanhdai.com/images/tech-stack-icons/tailwindcss.svg"
+                />
+                <span className="sr-only">Tailwind CSS</span>
+              </a>
+            </li>
+            <li className="flex">
+              <a
+                href="https://git-scm.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Git"
+              >
+                <img
+                  alt="Git icon"
+                  loading="lazy"
+                  width="32"
+                  height="32"
+                  src="https://assets.chanhdai.com/images/tech-stack-icons/git.svg"
+                />
+                <span className="sr-only">Git</span>
+              </a>
+            </li>
+            {/* Add more as needed */}
+          </ul>
+        </div>
+      </div>
+      <DividerPattern />
+      <HeadingPattern heading="Blog" />
+      <SimpleLineDivider />
+      <div className="md:grid md:grid-cols-2 max-w-3xl border-x mx-auto  border-slate-200">
+        {blog_sample_data.map((item, index) => (
+          <BlogCard
+            key={index}
+            img={item.img}
+            title={item.title}
+            date={item.date}
+          />
+        ))}
+      </div>
     </>
   );
 }
